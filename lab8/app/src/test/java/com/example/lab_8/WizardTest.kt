@@ -32,4 +32,33 @@ class WizardTest {
 
         assertEquals(5, evilWizard.mana) // mana still is 5
     }
+
+        @Test
+        fun restoreMana_amountAddedExceedsOneHundred_manaSetToOneHundred() {
+            evilWizard.restoreMana(80)
+            kotlin.test.assertEquals(100, evilWizard.mana)
+        }
+
+        @Test
+        fun restoreMana_amountAddedDoesNotExceedOneHundred_manaIncreasesCorrectly() {
+            evilWizard.restoreMana(40)
+            kotlin.test.assertEquals(70, evilWizard.mana)
+        }
+
+        @Test
+        fun train_haveEnoughMana() {
+            evilWizard.train()
+            kotlin.test.assertEquals(25, evilWizard.mana)
+            kotlin.test.assertEquals(9, evilWizard.spellPower)
+        }
+
+        @Test
+        fun train_notEnoughMana() {
+            val otherWizard = Wizard("Other Wizard", 4, 10)
+            otherWizard.train()
+            kotlin.test.assertEquals(4, otherWizard.mana)
+            kotlin.test.assertEquals(10, otherWizard.spellPower)
+
+        }
+
 }
