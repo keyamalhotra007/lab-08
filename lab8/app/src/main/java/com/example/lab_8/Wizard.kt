@@ -30,7 +30,9 @@ class Wizard(val name: String, var mana: Int, var spellPower: Int) {
         mana = minOf(100, mana + amount)
     }
 
-    fun train() {}
+    fun train() {
+
+    }
 }
 
 class WizardTest {
